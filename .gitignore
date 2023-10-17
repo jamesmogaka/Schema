@@ -1,3 +1,8 @@
 nbproject/
 *.js
 .prettierrc.json
+v/messenger_originals/vendor/
+v/code/messenger/twilio/
+v/code/messenger/mailer/
+v_metavisuo/code/messenger/twilio/
+v_metavisuo/code/messenger/mailer/
