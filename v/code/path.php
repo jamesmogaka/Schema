@@ -26,10 +26,14 @@ class path{
     //Scan files in folder in the current directory.
     function scandir():Array/*<{path:path, name:string, is_file:boolean, properties:properties}>*/{
         //
+        //Ensure that the user created an instance of the path class with a directory rather than a file
+        if($this->is_file) throw new \Exception("This '$this->name' is not a valid directory");
+        //
         //Get the filename being scanned
         //
         //
-        //Easy way to get rid of the dots that scandir() picks up in Linux environments:
+        //Easy way to get rid of the reference to the current and parent directory that scandir() 
+        //picks up
         $scan_indexed = array_diff(scandir($this->name), ['..', '.']);
         //
         //The array dif seems to return an indxed array -- which gets mapped to
@@ -158,9 +162,7 @@ class path{
         //
         //The path cannot be renamed
         throw new \Exception("Unable to rename '{$this->name}' to '$to'");
-   }
-   
-   
+   }  
 }
 
 
